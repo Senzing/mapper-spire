@@ -14,6 +14,7 @@ import hashlib
 
 #=========================
 class mapper():
+    ''' standard mapper class '''
 
     #----------------------------------------
     def __init__(self):
@@ -37,7 +38,7 @@ class mapper():
         #--mandatory attributes
         json_data['DATA_SOURCE'] = 'SPIRE'
 
-        #--the record_id should be unique, remove this mapping if there is not one 
+        #--the record_id should be unique, remove this mapping if there is not one
         json_data['RECORD_ID'] = raw_data['imo']
 
         #--record type is not mandatory, but should be PERSON or ORGANIZATION
@@ -503,7 +504,7 @@ class mapper():
         if not raw_value:
             return ''
         new_value = ' '.join(str(raw_value).strip().split())
-        if new_value.upper() in self.variant_data['GARBAGE_VALUES']: 
+        if new_value.upper() in self.variant_data['GARBAGE_VALUES']:
             return ''
         return new_value
 
@@ -513,15 +514,15 @@ class mapper():
             string_to_hash = ''
             for attr_name in sorted(attr_list):
                 string_to_hash += (' '.join(str(target_dict[attr_name]).split()).upper() if attr_name in target_dict and target_dict[attr_name] else '') + '|'
-        else:           
+        else:
             string_to_hash = json.dumps(target_dict, sort_keys=True)
         return hashlib.md5(bytes(string_to_hash, 'utf-8')).hexdigest()
 
     #----------------------------------------
     def format_date(self, raw_date):
-        try: 
+        try:
             return datetime.strftime(dateparse(raw_date), '%Y-%m-%d')
-        except: 
+        except:
             self.update_stat('!INFO', 'BAD_DATE', raw_date)
             return ''
 
@@ -557,7 +558,6 @@ class mapper():
                 else:
                     randomSampleI = random.randint(2, 4)
                     self.stat_pack[cat1][cat2]['examples'][randomSampleI] = example
-        return
 
     #----------------------------------------
     def capture_mapped_stats(self, json_data):
@@ -565,7 +565,7 @@ class mapper():
         cat1 = json_data.get('RECORD_TYPE', 'UNKNOWN')
 
         for key1 in json_data:
-            if type(json_data[key1]) != list:
+            if isinstance(json_data[key1], list):
                 self.update_stat(cat1, key1, json_data[key1])
             else:
                 for subrecord in json_data[key1]:
@@ -577,12 +577,11 @@ def signal_handler(signal, frame):
     print('USER INTERUPT! Shutting down ... (please wait)')
     global shut_down
     shut_down = True
-    return
 
 #----------------------------------------
 if __name__ == "__main__":
     proc_start_time = time.time()
-    shut_down = False   
+    shut_down = False
     signal.signal(signal.SIGINT, signal_handler)
 
     input_file = 'enhanced_vessel_information.csv'
@@ -598,7 +597,7 @@ if __name__ == "__main__":
         print('\nPlease supply a valid input file name on the command line\n')
         sys.exit(1)
     if not args.output_file:
-        print('\nPlease supply a valid output file name on the command line\n') 
+        print('\nPlease supply a valid output file name on the command line\n')
         sys.exit(1)
 
     input_file_handle = open(args.input_file, 'r')
@@ -628,11 +627,9 @@ if __name__ == "__main__":
     input_file_handle.close()
 
     #--write statistics file
-    if args.log_file: 
+    if args.log_file:
         with open(args.log_file, 'w') as outfile:
             json.dump(mapper.stat_pack, outfile, indent=4, sort_keys = True)
         print('Mapping stats written to %s\n' % args.log_file)
 
-
     sys.exit(0)
-
