@@ -2,7 +2,7 @@
 
 ## Overview
 
-This mapper converts the Spire enhanced_vessel_master.csv file into a json file ready to load into Senzing where it can be matched against other data sources.  You can purchase Spire data at [https://spire.com/maritime/](https://spire.com/maritime/)
+This mapper converts the Spire enhanced_vessel_master.csv file into a json file ready to load into Senzing where it can be matched against other data sources.  You can purchase Spire data at [https://spire.com/maritime/]
 
 Full Usage:
 
@@ -55,3 +55,5 @@ Initializing Senzing engines ...
 ```
 
 You are now ready to load the json output file into Senzing using your desired method!
+
+[https://spire.com/maritime/]: https://spire.com/maritime/
