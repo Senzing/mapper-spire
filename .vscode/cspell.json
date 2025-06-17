@@ -1,0 +1,46 @@
+{
+  // Version of the setting file.  Always 0.2
+  "version": "0.2",
+  // language - current active spelling language
+  "language": "en",
+  // words - list of words to be always considered correct
+  "words": [
+    "analysing",
+    "CCLA",
+    "CHENGXI",
+    "CODEOWNER",
+    "COSCO",
+    "Daewoo",
+    "dateutil",
+    "HUANGPU",
+    "ICLA",
+    "Imabari",
+    "Kaiji",
+    "MARU",
+    "mcorpm",
+    "Mipo",
+    "mmsi",
+    "Moller",
+    "Moller",
+    "mypy",
+    "Newbuilding",
+    "NINGBO",
+    "nomino",
+    "pylint",
+    "SANYO",
+    "Senzing",
+    "shellcheck",
+    "stackoverflow",
+    "subrecord",
+    "Sulzer",
+    "tpcmi",
+    "WAIGAOQIAO",
+    "Wartsila",
+    "WENCHONG",
+    "XINLE"
+  ],
+  "ignorePaths": [
+    ".git/**",
+    ".mypy_cache/**"
+  ]
+}
