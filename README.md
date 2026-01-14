@@ -2,7 +2,7 @@
 
 ## Overview
 
-This mapper converts the Spire enhanced_vessel_master.csv file into a json file ready to load into Senzing where it can be matched against other data sources.  You can purchase Spire data at [https://spire.com/maritime/]
+This mapper converts the Spire enhanced_vessel_master.csv file into a json file ready to load into Senzing where it can be matched against other data sources. You can purchase Spire data at [https://spire.com/maritime/]
 
 Full Usage:
 
@@ -33,7 +33,7 @@ Configuring Senzing:
 Go into the G2ConfigTool.py and add the data source code(s) you decide to use.
 
 ```console
-/opt/senzing/g2/python/G2ConfigTool.py 
+/opt/senzing/g2/python/G2ConfigTool.py
 
 Welcome to the Senzing configuration tool! Type help or ? to list commands
 
