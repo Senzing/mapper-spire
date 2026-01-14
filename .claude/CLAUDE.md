@@ -9,16 +9,19 @@ mapper-spire converts Spire `enhanced_vessel_master.csv` maritime vessel data in
 ## Commands
 
 ### Run the Mapper
+
 ```bash
 python3 src/spire_mapper.py -i <input_csv> -o <output_json> [-l <log_file>]
 ```
 
 ### Install Dependencies
+
 ```bash
 python -m pip install --group all .
 ```
 
 ### Lint
+
 ```bash
 pylint $(git ls-files '*.py' ':!:docs/source/*')
 ```
