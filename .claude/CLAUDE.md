@@ -39,4 +39,4 @@ Key Senzing attributes mapped: `DATA_SOURCE`, `RECORD_ID`, `RECORD_TYPE` (VESSEL
 
 ## Python Version
 
-Requires Python 3.10+. CI tests against Python 3.10, 3.11, 3.12, and 3.13.
+Requires Python 3.11+. CI tests against Python 3.11, 3.12, and 3.13.
